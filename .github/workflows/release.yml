@@ -8,7 +8,13 @@ env:
 
 on:
   release:
-    types: [published]
+    types: [published, released]
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: Release tag to build and publish
+        required: true
+        type: string
 
 jobs:
   build-and-tag:
@@ -19,11 +25,14 @@ jobs:
       id-token: write
       attestations: write
 
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag_name }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.release.tag_name }}
+          ref: ${{ env.RELEASE_TAG }}
 
       - name: Record source commit
         id: source
@@ -65,6 +74,6 @@ jobs:
       - name: Push source tag
         shell: bash
         run: |
-          TAGNAME="${{ github.event.release.tag_name }}-src"
+          TAGNAME="${{ env.RELEASE_TAG }}-src"
           git tag "$TAGNAME" "${{ steps.source.outputs.sha }}"
           git push origin "$TAGNAME"
