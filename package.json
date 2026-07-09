@@ -9,7 +9,7 @@
     "url": "git+https://github.com/iShark5060/actions-msvc-dev-cmd.git"
   },
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "scripts": {
     "validate": "node run-quality-checks.mjs",
     "lint": "oxlint .",
@@ -18,8 +18,8 @@
     "check-format": "oxfmt --check .",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "build": "esbuild src/index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.js --minify",
-    "build-debug": "esbuild src/index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.js --sourcemap --keep-names",
+    "build": "esbuild src/index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.cjs --minify",
+    "build-debug": "esbuild src/index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.cjs --sourcemap --keep-names",
     "deps": "pnpm dlx npm-check-updates --target newest -u --reject @types/node && pnpm dlx npm-check-updates @types/node --target semver -u",
     "deps:update": "pnpm update -r --latest && pnpm update @types/node"
   },

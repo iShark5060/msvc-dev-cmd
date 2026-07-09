@@ -54,17 +54,17 @@ jobs:
         run: pnpm run build
 
       - name: Verify action bundle
-        run: node --check dist/index.js
+        run: node --check dist/index.cjs
 
       - name: Attest action.yml
         uses: actions/attest-build-provenance@v4
         with:
           subject-path: action.yml
 
-      - name: Attest dist/index.js
+      - name: Attest dist/index.cjs
         uses: actions/attest-build-provenance@v4
         with:
-          subject-path: dist/index.js
+          subject-path: dist/index.cjs
 
       - name: Publish to release tag
         uses: iShark5060/actions-build-and-tag@v1

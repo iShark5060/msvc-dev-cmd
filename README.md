@@ -6,7 +6,7 @@ Configure the Microsoft Visual C++ Developer Command Prompt on Windows runners.
 
 > **Fork notice:** Maintained fork of [ilammy/msvc-dev-cmd](https://github.com/ilammy/msvc-dev-cmd) by ilammy (MIT License).
 
-> **Always reference a published version tag** (e.g. `@v1`). The bundled action code (`dist/index.js`) is only committed to release tags, so referencing `@main` will not work.
+> **Always reference a published version tag** (e.g. `@v1`). The bundled action code (`dist/index.cjs`) is only committed to release tags, so referencing `@main` will not work.
 
 Supports Windows. Does nothing on Linux and macOS.
 

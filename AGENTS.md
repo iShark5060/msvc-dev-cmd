@@ -8,7 +8,7 @@ GitHub Action for configuring the MSVC Developer Command Prompt on Windows runne
 - `src/lib.js` — MSVC environment setup and Windows-specific logic
 - `src/version.js` — Visual Studio version/year mapping helpers
 - `action.yml` — action metadata
-- `dist/index.js` — published CJS bundle (committed on release tags only)
+- `dist/index.cjs` — published CJS bundle (committed on release tags only)
 
 Source files use ESM (`"type": "module"`); the published bundle must stay **CJS** (`--format=cjs`).
 
@@ -26,7 +26,7 @@ When behavior changes, update:
 - `README.md`
 - `action.yml`
 - tests under `tests/`
-- regenerate `dist/index.js` with `pnpm run build`
+- regenerate `dist/index.cjs` with `pnpm run build`
 
 ## Verification
 
