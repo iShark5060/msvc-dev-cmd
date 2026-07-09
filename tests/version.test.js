@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { vsversion_to_versionnumber, vsversion_to_year } from '../version.js';
+import { vsversion_to_versionnumber, vsversion_to_year } from '../src/version.js';
 
 describe('vsversion_to_versionnumber', () => {
   it('maps Visual Studio years to version numbers', () => {

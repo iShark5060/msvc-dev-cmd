@@ -48,7 +48,7 @@ ${n}`;break;case"retry":pu(n)&&(t[s]=n);break;case"id":Du(n)&&(t[s]=n);break;cas
 `),l=g[2].split(`\r
 `),I=E.filter(u=>!!(u.match(/^\[ERROR.*\]/)&&!u.match(/Error in script usage. The correct usage is:$/)));if(I.length>0)throw new Error(`invalid parameters\r
 `+I.join(`\r
-`));let C={};for(let u of Q){let[B,d]=u.split("=");C[B]=d}_u("Environment variables");for(let u of l){if(!u.includes("="))continue;let[B,d]=u.split("="),p=C[B];d!==p&&(PA(`Setting ${B}`),jb(B)&&(d=$b(d)),Ou(B,d))}zu(),PA("Configured Developer Command Prompt")}function AU(){var e=Bt("arch");let A=Bt("sdk"),t=Bt("toolset"),r=Bt("uwp"),s=Bt("spectre"),n=Bt("vsversion");ed(e,A,t,r,s,n)}try{AU()}catch(e){Pu("Could not setup Developer Command Prompt: "+e.message)}
+`));let C={};for(let u of Q){let[B,d]=u.split("=");C[B]=d}_u("Environment variables");for(let u of l){if(!u.includes("="))continue;let[B,d]=u.split("="),p=C[B];d!==p&&(PA(`Setting ${B}`),jb(B)&&(d=$b(d)),Ou(B,d))}zu(),PA("Configured Developer Command Prompt")}function AU(){ed(Bt("arch"),Bt("sdk"),Bt("toolset"),Bt("uwp"),Bt("spectre"),Bt("vsversion"))}try{AU()}catch(e){let A=e instanceof Error?e.message:String(e);Pu(`Could not setup Developer Command Prompt: ${A}`)}
 /*! Bundled license information:
 
 undici/lib/web/fetch/body.js:
