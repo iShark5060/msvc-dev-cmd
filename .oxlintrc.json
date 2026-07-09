@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["unicorn"],
+  "env": {
+    "node": true
+  },
+  "ignorePatterns": ["dist/**", "node_modules/**", "coverage/**"],
+  "overrides": [
+    {
+      "files": ["**/*.test.js", "**/__tests__/**"],
+      "rules": {
+        "require-yield": "off"
+      }
+    }
+  ]
+}

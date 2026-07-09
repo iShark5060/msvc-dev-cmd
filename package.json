@@ -1,35 +1,54 @@
 {
   "name": "msvc-dev-cmd",
   "version": "1.13.0-dev",
+  "private": true,
   "description": "GitHub Action to setup Developer Command Prompt for Microsoft Visual C++",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ilammy/msvc-dev-cmd.git"
-  },
   "keywords": [
-    "GitHub",
     "Actions",
     "Developer Command Prompt",
-    "Microsoft Visual Studio",
+    "GitHub",
     "Microsoft Visual C++",
-    "Visual Studio",
+    "Microsoft Visual Studio",
     "Visual C++",
+    "Visual Studio",
     "vcvarsall.bat"
   ],
-  "author": "ilammy <me@ilammy.net>",
-  "license": "MIT",
+  "homepage": "https://github.com/iShark5060/msvc-dev-cmd#readme",
   "bugs": {
-    "url": "https://github.com/ilammy/msvc-dev-cmd/issues"
+    "url": "https://github.com/iShark5060/msvc-dev-cmd/issues"
   },
-  "homepage": "https://github.com/ilammy/msvc-dev-cmd#readme",
+  "license": "MIT",
+  "author": "ilammy <me@ilammy.net>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iShark5060/msvc-dev-cmd.git"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "validate": "node run-quality-checks.mjs",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt --write .",
+    "check-format": "oxfmt --check .",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "esbuild index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.js --minify",
+    "build-debug": "esbuild index.js --bundle --platform=node --format=cjs --target=node24 --outfile=dist/index.js --sourcemap --keep-names",
+    "deps": "pnpm dlx npm-check-updates --target newest -u"
+  },
   "dependencies": {
-    "@actions/core": "^1.10.0"
+    "@actions/core": "^3.0.1"
   },
   "devDependencies": {
-    "eslint": "^7"
-  }
+    "@vitest/coverage-v8": "^4.1.10",
+    "esbuild": "^0.28.1",
+    "oxfmt": "^0.58.0",
+    "oxlint": "^1.73.0",
+    "vitest": "^4.1.10"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.10.0"
 }

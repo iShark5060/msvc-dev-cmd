@@ -1,4 +1,4 @@
-<a href="https://github.com/ilammy/msvc-dev-cmd"><img alt="GitHub Actions status" src="https://github.com/ilammy/msvc-dev-cmd/workflows/msvc-dev-cmd/badge.svg"></a>
+<a href="https://github.com/iShark5060/msvc-dev-cmd"><img alt="GitHub Actions status" src="https://github.com/iShark5060/msvc-dev-cmd/actions/workflows/main.yml/badge.svg"></a>
 
 # msvc-dev-cmd
 
@@ -8,6 +8,8 @@ This sets up the environment for compiling C/C++ code from command line.
 
 Supports Windows. Does nothing on Linux and macOS.
 
+> **Fork notice:** Maintained fork of [ilammy/msvc-dev-cmd](https://github.com/ilammy/msvc-dev-cmd). Original project by ilammy (MIT License).
+
 ## Example usage
 
 Basic usage for default compilation settings is like this:
@@ -16,8 +18,8 @@ Basic usage for default compilation settings is like this:
 jobs:
   test:
     steps:
-      - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: actions/checkout@v7
+      - uses: iShark5060/msvc-dev-cmd@v1
       - name: Build something requiring CL.EXE
         run: |
           cmake -G "NMake Makefiles" .
@@ -41,8 +43,8 @@ jobs:
           - amd64_x86
           - amd64_arm64
     steps:
-      - uses: actions/checkout@v4
-      - uses: ilammy/msvc-dev-cmd@v1
+      - uses: actions/checkout@v7
+      - uses: iShark5060/msvc-dev-cmd@v1
         with:
           arch: ${{ matrix.arch }}
       - name: Build something requiring CL.EXE
@@ -79,18 +81,18 @@ jobs:
 Using `shell: bash` in Actions may shadow some of the paths added by MSVC.
 In particular, `link.exe` (Microsoft C linker) is prone to be shadowed by `/usr/bin/link` (GNU filesystem link tool).
 
-Unfortunately, this happens because GitHub Actions unconditionally *prepend* GNU paths when `shell: bash` is used,
+Unfortunately, this happens because GitHub Actions unconditionally _prepend_ GNU paths when `shell: bash` is used,
 on top of any paths set by `msvc-dev-cmd`, every time at the start of each new step.
 Hence, there aren't many non-destructive options here.
 
 If you experience compilation errors where `link` complains about unreasonable command-line arguments,
-“extra operand *something-something*” – that's probably it.
+“extra operand _something-something_” – that's probably it.
 Recommended workaround is to remove `/usr/bin/link` if that interferes with your builds.
 If this is not acceptable, please file an issue, then we'll figure out something better.
 
 ### Reconfiguration
 
-You can invoke `ilammy/msvc-dev-cmd` multiple times during your jobs with different inputs
+You can invoke `iShark5060/msvc-dev-cmd` multiple times during your jobs with different inputs
 to reconfigure the environment for building with different settings
 (e.g., to target multiple architectures).
 
@@ -100,25 +102,26 @@ jobs:
     steps:
       # ...
       - name: Configure build for amd64
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: iShark5060/msvc-dev-cmd@v1
         with:
           arch: amd64
 
       - run: build # (for amd64)
 
       - name: Configure build for x86
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: iShark5060/msvc-dev-cmd@v1
         with:
           arch: amd64_x86
 
       - run: build # (for x86)
 
       - name: Configure build for ARM64
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: iShark5060/msvc-dev-cmd@v1
         with:
           arch: amd64_arm64
 
       - run: build # (for ARM64)
+
 
       # ...
 ```
