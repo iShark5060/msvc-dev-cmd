@@ -57,12 +57,12 @@ jobs:
         run: node --check dist/index.cjs
 
       - name: Attest action.yml
-        uses: actions/attest-build-provenance@v4
+        uses: actions/attest@v4
         with:
           subject-path: action.yml
 
       - name: Attest dist/index.cjs
-        uses: actions/attest-build-provenance@v4
+        uses: actions/attest@v4
         with:
           subject-path: dist/index.cjs
 
