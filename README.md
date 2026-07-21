@@ -80,10 +80,10 @@ You can invoke the action multiple times in one job with different inputs, but u
 
 ## Scripts
 
-| Script              | Description                                    |
-| ------------------- | ---------------------------------------------- |
-| `pnpm run validate` | Format check, lint, and tests.                 |
-| `pnpm run build`    | Bundle `src/` into `dist/index.cjs`.           |
+| Script              | Description                          |
+| ------------------- | ------------------------------------ |
+| `pnpm run validate` | Format check, lint, and tests.       |
+| `pnpm run build`    | Bundle `src/` into `dist/index.cjs`. |
 
 ## Development
 
