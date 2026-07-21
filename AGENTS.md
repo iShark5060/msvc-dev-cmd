@@ -43,6 +43,15 @@ Integration jobs in `.github/workflows/ci.yml` cover Windows compilation scenari
 2. Verify the Release workflow completes
 3. Promote to a full release when ready
 
+## Engineering standards
+
+Follow AppBase `docs/org-standards/` with personal-repo overrides (`personal-repos.md`):
+
+- Runners: `ubuntu-latest` / `windows-latest`
+- Checkout: `actions/checkout@v7`
+- Node setup: `actions/setup-node@v7`
+- Quality gate: `pnpm run validate`
+
 ## OpenWiki
 
 This repository has documentation located in the /openwiki directory.

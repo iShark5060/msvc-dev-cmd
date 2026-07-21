@@ -1,8 +1,11 @@
 # MSVC Dev Cmd
 
-Configure the Microsoft Visual C++ Developer Command Prompt on Windows runners.
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![CI](https://github.com/iShark5060/actions-msvc-dev-cmd/actions/workflows/ci.yml/badge.svg)](https://github.com/iShark5060/actions-msvc-dev-cmd/actions/workflows/ci.yml)
+![Node](https://img.shields.io/badge/Node-%3E%3D24-339933?logo=node.js&logoColor=white)
+[![Cursor](https://img.shields.io/badge/Cursor-IDE-141414?logo=cursor&logoColor=white)](https://cursor.com)
+
+Configure the Microsoft Visual C++ Developer Command Prompt on Windows runners.
 
 > **Fork notice:** Maintained fork of [ilammy/msvc-dev-cmd](https://github.com/ilammy/msvc-dev-cmd) by ilammy (MIT License).
 
@@ -69,6 +72,24 @@ You can invoke the action multiple times in one job with different inputs, but u
 ### ARM32 cross-compilation (`amd64_arm`, `x86_arm`)
 
 32-bit ARM targets were removed from Visual Studio 2026. On GitHub-hosted runners with VS 2026+, use `amd64_arm64` or `x86_arm64` instead. To target ARM32, pin an older runner image and set `vsversion: 2022`.
+
+## Requirements
+
+- Node.js 24+
+- pnpm 11+
+
+## Scripts
+
+| Script              | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| `pnpm run validate` | Format check, lint, and tests.                 |
+| `pnpm run build`    | Bundle `src/` into `dist/index.cjs`.           |
+
+## Development
+
+Agent-oriented docs: [openwiki/quickstart.md](openwiki/quickstart.md).
+
+Engineering standards: AppBase `docs/org-standards/` with [personal-repos.md](https://github.com/Dark-Avian-Labs/AppBase/blob/main/docs/org-standards/personal-repos.md) (GitHub-hosted runners).
 
 ## License
 
